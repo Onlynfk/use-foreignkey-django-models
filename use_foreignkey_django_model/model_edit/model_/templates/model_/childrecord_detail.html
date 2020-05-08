@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+</head>
+
+<body>
+    <h3>{{ object.first_name}}</h3>
+    {% for immunize_schedule in object.immunize_schedules %}
+    <a href="{{immunize_schedule.get_absolute_url }}"> {{ immunize_schedule.disease_type}}</a>
+    {% endfor %}
+
+</body>
+
+</html>

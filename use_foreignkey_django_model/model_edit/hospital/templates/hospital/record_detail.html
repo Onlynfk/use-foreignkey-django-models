@@ -1,0 +1,44 @@
+{% extends 'hospital/base.html' %} {% block content %}
+<h1> Detail for {{ object.first_name }} Record </h1>
+
+<h5>Adress :</h5>
+<h5> Birth Date : {{object.birth_date}} </h5>
+<h5> Weight : {{object.weight }}</h5>
+<h5>Height : {{ object.height }}</h5>
+<h5> Parents : {{ object.parent_name }} </h5>
+<h5> Parent Mobile Number : {{ object.parent_mobile}}</h5>
+<h5>Home Address : {{object.home_address}}</h5>
+<br>
+
+
+
+
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date Immunized</th>
+            <th scope="col">Vaccine Type</th>
+            <th scope="col">Disease Type</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        {% for schedule in object.schedules %}
+        <tr>
+            <th scope="row">{{schedule.position}}</th>
+            <td> <a href="{{ schedule.get_absolute_url }}">{{ schedule.date_immunized }}</a></td>
+            <td> {{ schedule.vaccine_type }}</td>
+            <td> {{ schedule.disease_type }}</td>
+        </tr>
+
+        {% endfor%}
+
+    </tbody>
+</table>
+
+{% endblock %}

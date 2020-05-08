@@ -1,0 +1,16 @@
+{% extends 'hospital/base.html' %} {% block content %}
+
+<h1> Your Records Page</h1>
+
+<br>
+<ul class="list-group">
+    {% for object in object_list %}
+
+    <li class="list-group-item">
+        <a href="{{ object.get_absolute_url }}">{{ object }}</a>
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}
